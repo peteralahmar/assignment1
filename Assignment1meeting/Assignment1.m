@@ -56,8 +56,8 @@ while inside_box == true
     end
 end
 
-velocityx = rand(1,nParticles) .*strdDev;
-velocityy = rand(1,nParticles) .*strdDev;
+velocityx = randn(1,nParticles) .*strdDev;
+velocityy = randn(1,nParticles) .*strdDev;
 
 
 vrms = sqrt((velocityx .^ 2) + (velocityy .^ 2));
@@ -72,8 +72,8 @@ boundary = 0;
 for i=1: iter
     
     initialS1 = pScatter > rand(1,nParticles);
-    velocityx(initialS1) = randn .* strdDev;
-    velocityy(initialS1) = randn .* strdDev;
+    velocityx(initialS1) = randn(1,length(velocityx(initialS1))) .* strdDev;
+    velocityy(initialS1) = randn(1,length(velocityy(initialS1))) .* strdDev;
     
     if initialS(1) ~= initialS1(1)
        col=col +1;
